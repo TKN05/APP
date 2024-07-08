@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Ventanas -->
+        <div id="profile" class="view active">
+            <h2>Perfil</h2>
+            <div id="user-profile">
+                <img src="https://via.placeholder.com/150" alt="Foto de perfil" id="profile-picture">
+                <p><strong>Nombre:</strong> <span id="user-name"></span></p>
+                <p><strong>Email:</strong> <span id="user-email"></span></p>
+                <p><strong>Edad:</strong> <span id="user-age"></span></p>
+                <p><strong>Puntaje:</strong> <span id="user-score"></span></p>
+                <p><strong>Racha Actual:</strong> <span id="current-streak"></span> días</p>
+            </div>
+        </div>
+        
+        <div id="habits" class="view">
+            <h2>Hábitos</h2>
+            <div id="calendar"></div>
+            <div id="progress-container">
+                <div id="progress-bar">
+                    <div id="progress-bar-fill"></div>
+                </div>
+            </div>
+            <div id="habits-list"></div>
+        </div>
+        
+        <div id="add-habit" class="view">
+            <h2>Agregar Hábito</h2>
+            <form id="habit-form">
+                <label for="habit-name">Nombre del hábito</label>
+                <input type="text" id="habit-name" name="habit-name" placeholder="Nombre del hábito" required>
+
+                <label for="habit-time">Hora del hábito</label>
+                <input type="time" id="habit-time" name="habit-time" required>
+
+                <label for="habit-frequency">Frecuencia del hábito</label>
+                <select id="habit-frequency" name="habit-frequency" required>
+                    <option value="diario">Diario</option>
+                    <option value="semanal">Semanal</option>
+                    <option value="mensual">Mensual</option>
+                </select>
+
+                <button type="submit">Agregar</button>
+            </form>
+        </div>
+        
+        <div id="score" class="view">
+            <h2>Puntaje</h2>
+            <p id="score-value">Puntaje: 0</p>
+            <p id="kpi-value">Tasa de Cumplimiento: 0%</p>
+        </div>
+    </div>
+    
+    <!-- Navegación inferior -->
+    <nav>
+        <button onclick="showView('profile')"><i class="fas fa-user"></i></button>
+        <button onclick="showView('habits')"><i class="fas fa-list"></i></button>
+        <button onclick="showView('add-habit')"><i class="fas fa-plus"></i></button>
+        <button onclick="showView('score')"><i class="fas fa-chart-line"></i></button>
+    </nav>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
